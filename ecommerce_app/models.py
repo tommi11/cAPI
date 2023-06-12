@@ -14,7 +14,11 @@ class Product(models.Model):
         return self.name
 
     def discounted_price(self):
-        return self.price * (1 - self.discount / 100)        
+        return self.price * (1 - self.discount / 100)
+
+    @classmethod
+    def get_discounted_products(cls):
+        return cls.objects.filter(discount__gt=0)            
 
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

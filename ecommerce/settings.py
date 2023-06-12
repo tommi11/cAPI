@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for ecommerce project.
 
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-ap6h-4+3z*p6r&-l1@0%y@n+q#6(s&@--+v!$8y+wngzxp54fh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -121,5 +123,11 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
